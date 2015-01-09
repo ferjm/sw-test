@@ -1,7 +1,4 @@
 function debug(aStr) {
-  if (window.dump) {
-    window.dump('ServiceWorker - ' + aStr + '\n');
-  }
   console.log('ServiceWorker - ' + aStr);
 }
 
