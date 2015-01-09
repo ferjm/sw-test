@@ -6,7 +6,7 @@ this.addEventListener('install', function(event) {
   debug('install event');
   event.waitUntil(
     caches.open('v1').then(function(cache) {
-      return cache.add(
+      return cache.addAll([
         '/sw-test/',
         '/sw-test/index.html',
         '/sw-test/style.css',
@@ -17,7 +17,7 @@ this.addEventListener('install', function(event) {
         '/sw-test/gallery/bountyHunters.jpg',
         '/sw-test/gallery/myLittleVader.jpg',
         '/sw-test/gallery/snowTroopers.jpg'
-      );
+      ]);
     })
   );
 });
