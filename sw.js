@@ -8,7 +8,9 @@ this.addEventListener('install', function(event) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/sw-test/index.html'
-      ]);
+      ]).catch(function(err) {
+        debug('Error ' + err);
+      });
     })
   );
 });
