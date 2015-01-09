@@ -1,4 +1,12 @@
+function debug(aStr) {
+  if (window.dump) {
+    window.dump('ServiceWorker - ' + aStr + '\n');
+  }
+  console.log('ServiceWorker - ' + aStr);
+}
+
 this.addEventListener('install', function(event) {
+  debug('install event');
   event.waitUntil(
     caches.create('v1').then(function(cache) {
       return cache.add(
@@ -41,6 +49,7 @@ this.addEventListener('install', function(event) {
 // )};
 
 this.addEventListener('fetch', function(event) {
+  debug('fetch event: ' + event.request.url);
   var cachedResponse = caches.match(event.request).catch(function() {
     return event.default().then(function(response) {
       return caches.get('v1').then(function(cache) {
