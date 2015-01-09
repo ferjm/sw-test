@@ -5,13 +5,7 @@ function debug(aStr) {
 this.addEventListener('install', function(event) {
   debug('install event');
   event.waitUntil(
-    caches.open('v1').then(function(cache) {
-      return cache.addAll([
-        '/sw-test/index.html'
-      ]).catch(function(err) {
-        debug('Error ' + err);
-      });
-    })
+    caches.open('v1');
   );
 });
 
