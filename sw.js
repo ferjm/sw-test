@@ -5,7 +5,7 @@ function debug(aStr) {
 this.addEventListener('install', function(event) {
   debug('install event');
   event.waitUntil(
-    caches.open('v1');
+    caches.open('v1')
   );
 });
 
