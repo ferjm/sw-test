@@ -5,7 +5,7 @@ function debug(aStr) {
 this.addEventListener('install', function(event) {
   debug('install event');
   event.waitUntil(
-    caches.create('v1').then(function(cache) {
+    caches.open('v1').then(function(cache) {
       return cache.add(
         '/sw-test/',
         '/sw-test/index.html',
